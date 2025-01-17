@@ -1,4 +1,4 @@
-<form action="" class=" md:w-1/2 space-y-5" wire:submit.prevent='crearHardware'>
+<form class=" md:w-1/2 space-y-5" wire:submit.prevent='crearHardware'>
     <div>
         <x-input-label for="usuarioAsignado" :value="__('Usuario Asignado')" />
         <x-text-input id="usuarioAsignado" class="block mt-1 w-full" type="text" wire:model="usuarioAsignado" :value="old('usuarioAsignado')" placeholder="Usuario al que se le asigna el Hardware." />                                  
@@ -23,6 +23,11 @@
         <x-input-label for="serieHardware" :value="__('Número de serie del Hardware')" />
         <x-text-input id="serieHardware" class="block mt-1 w-full" type="text" wire:model="serieHardware" :value="old('serieHardware')" placeholder="Número de serie del Hardware." />
         <x-input-error :messages="$errors->get('serieHardware')" class="mt-2" />
+    </div>
+    <div>
+        <x-input-label for="tipoHardware" :value="__('Tipo de Hardware')" />
+        <x-text-input id="tipoHardware" class="block mt-1 w-full" type="text" wire:model="tipoHardware" :value="old('tipoHardware')" placeholder="Tipo de Hardware (Laptop, PC, Impresora, etc)." />
+        <x-input-error :messages="$errors->get('tipoHardware')" class="mt-2" />
     </div>
     <div>
         <x-input-label for="oficinaResponsable" :value="__('Oficina responsable del Hardware')" />

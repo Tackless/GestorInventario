@@ -18,8 +18,9 @@ return new class extends Migration
             $table->string('marcaHardware');
             $table->string('modeloHardware');
             $table->string('serieHardware');
+            $table->string('tipoHardware');
             $table->string('oficinaResponsable');
-            $table->string('descripcionHardware');
+            $table->text('descripcionHardware');
             $table->timestamps();
         });
     }

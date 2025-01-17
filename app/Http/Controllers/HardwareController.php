@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Hardware;
 use Illuminate\Http\Request;
 
 class HardwareController extends Controller
@@ -41,9 +42,11 @@ class HardwareController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Hardware $hardware)
     {
-        //
+        return view('hardware.edit', [
+            'hardware' => $hardware
+        ]);
     }
 
     /**

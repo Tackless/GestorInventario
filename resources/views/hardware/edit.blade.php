@@ -11,7 +11,9 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <h1 class=" text-4xl font-bold text-center mb-10">Editar Hardware: {{ $hardware->id }}</h1>
                     <div class=" md:flex md:justify-center p-5">
-                        
+                        <livewire:editar-hardware
+                            :hardware="$hardware"
+                        />
                     </div>
                 </div>
             </div>

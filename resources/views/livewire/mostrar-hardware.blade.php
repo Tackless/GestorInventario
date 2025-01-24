@@ -42,7 +42,7 @@
                                 <a href="{{ route('hardware.edit', $hw->id) }}" class=" bg-indigo-600 py-1 rounded-lg text-white text-xs font-bold uppercase text-center content-center">
                                     Editar
                                 </a>
-                                <a href="{{ route('hardware.edit', $hw->id) }}" class=" bg-green-900 py-1 mx-1 rounded-lg text-white text-xs font-bold uppercase text-center content-center">
+                                <a href="{{ route('hardware.show', $hw->id) }}" class=" bg-green-900 py-1 mx-1 rounded-lg text-white text-xs font-bold uppercase text-center content-center">
                                     Detalles
                                 </a>
                             </div>

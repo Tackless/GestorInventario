@@ -11,6 +11,7 @@ Route::get('/', function () {
 Route::get('/dashboard', [HardwareController::class, 'index'])->middleware(['auth', 'verified'])->name('hardware.index');
 Route::get('/hardware/create', [HardwareController::class, 'create'])->middleware(['auth', 'verified'])->name('hardware.create');
 Route::get('/hardware/{hardware}/edit', [HardwareController::class, 'edit'])->middleware(['auth', 'verified'])->name('hardware.edit');
+Route::get('/hardware/{hardware}', [HardwareController::class, 'show'])->name('hardware.show');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

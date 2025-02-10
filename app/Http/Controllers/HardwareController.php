@@ -3,15 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\Hardware;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request;
 
 class HardwareController extends Controller
 {
+    use AuthorizesRequests;
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
+        $this->authorize('viewAny', Hardware::class);
         return view('hardware.index');
     }
 
@@ -20,6 +23,7 @@ class HardwareController extends Controller
      */
     public function create()
     {
+        $this->authorize('create', Hardware::class);
         return view('hardware.create');
     }
 
@@ -46,6 +50,8 @@ class HardwareController extends Controller
      */
     public function edit(Hardware $hardware)
     {
+        $this->authorize('update', $hardware);
+
         return view('hardware.edit', [
             'hardware' => $hardware
         ]);

@@ -9,7 +9,7 @@ class MostrarHardware extends Component
 {
     public function render()
     {
-        $hardware = Hardware::paginate(10);
+        $hardware = Hardware::paginate(50);
         return view('livewire.mostrar-hardware', [
             'hardware' => $hardware
         ]);

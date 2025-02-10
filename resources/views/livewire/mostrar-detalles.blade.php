@@ -28,4 +28,10 @@
             <p>Fecha de asignación: <span class=" normal-case font-normal"> {{ $hardware->created_at->format('d/m/Y') }}</span> </p>
         </div>
     </div>
+
+    @can('update', $hardware)
+        <a href="{{ route('hardware.edit', $hardware->id) }}" class=" bg-indigo-600 p-5 rounded-lg text-white text-xs font-bold uppercase text-center content-center">
+            Editar
+        </a>    
+    @endcan
 </div>

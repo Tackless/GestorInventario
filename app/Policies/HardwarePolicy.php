@@ -13,7 +13,8 @@ class HardwarePolicy
      */
     public function viewAny(User $user): bool
     {
-        return false;
+        return $user->rol === 1;
+        // return false;
     }
 
     /**
@@ -21,7 +22,8 @@ class HardwarePolicy
      */
     public function view(User $user, Hardware $hardware): bool
     {
-        return false;
+        return $user->rol === 1;
+        // return false;
     }
 
     /**
@@ -29,7 +31,7 @@ class HardwarePolicy
      */
     public function create(User $user): bool
     {
-        return false;
+        return $user->rol === 1;
     }
 
     /**
@@ -37,7 +39,7 @@ class HardwarePolicy
      */
     public function update(User $user, Hardware $hardware): bool
     {
-        return false;
+        return $user->rol === 1;
     }
 
     /**

@@ -5,26 +5,26 @@
                 <div class="overflow-x-auto shadow-md rounded-lg">
                     <div class="grid grid-cols-12 min-w-[1000px] font-bold text-l hover:bg-gray-700">
                         <div class="col-span-1 ps-4">ID</div>
-                        <div class="col-span-2">Nombre de Usuario</div>
-                        <div class="col-span-2">Área</div>
-                        <div class="col-span-1">Marca</div>
+                        <div class="col-span-4">Nombre de Usuario</div>
+                        <div class="col-span-4">Área</div>
+                        {{-- <div class="col-span-1">Marca</div>
                         <div class="col-span-1">Modelo</div>
-                        <div class="col-span-1">No. Serie</div>
-                        <div class="col-span-1">Tipo</div>
-                        <div class="col-span-1">Oficina</div>
+                        <div class="col-span-1">No. Serie</div> --}}
+                        <div class="col-span-2">Tipo</div>
+                        {{-- <div class="col-span-1">Oficina</div> --}}
                     </div>
                         @foreach ($hardware as $hw)
                             <div class="grid grid-cols-12 min-w-[1000px] border-b border-gray-200 py-1 hover:bg-gray-700">
                                 <div class="col-span-1 ps-4">
                                     {{ $hw->id }}
                                 </div> 
-                                <div class="col-span-2 truncate">
+                                <div class="col-span-4 truncate">
                                     {{ $hw->usuarioAsignado }}
                                 </div> 
-                                <div class="col-span-2 truncate">
+                                <div class="col-span-4 truncate">
                                     {{ $hw->usuarioArea }}
                                 </div> 
-                                <div class="col-span-1 truncate">
+                                {{-- <div class="col-span-1 truncate">
                                     {{ $hw->marcaHardware }}
                                 </div> 
                                 <div class="col-span-1 truncate">
@@ -32,19 +32,25 @@
                                 </div> 
                                 <div class="col-span-1 truncate">
                                     {{ $hw->serieHardware }}
-                                </div> 
+                                </div>  --}}
                                 <div class="col-span-1 truncate">
                                     {{ $hw->tipoHardware }}
                                 </div> 
-                                <div class="col-span-1 truncate">
+                                {{-- <div class="col-span-1 truncate">
                                     {{ $hw->oficinaResponsable }}
-                                </div>
-                                <a href="{{ route('hardware.edit', $hw->id) }}" class=" bg-indigo-600 py-1 rounded-lg text-white text-xs font-bold uppercase text-center content-center">
-                                    Editar
-                                </a>
-                                <a href="{{ route('hardware.show', $hw->id) }}" class=" bg-green-900 py-1 mx-1 rounded-lg text-white text-xs font-bold uppercase text-center content-center">
-                                    Detalles
-                                </a>
+                                </div> --}}
+                                @auth
+
+                                @can('update', $hw)
+                                    <a href="{{ route('hardware.edit', $hw->id) }}" class=" bg-indigo-600 py-1 rounded-lg text-white text-xs font-bold uppercase text-center content-center">
+                                        Editar
+                                    </a>
+                                @endcan
+                                    <a href="{{ route('hardware.show', $hw->id) }}" class=" bg-green-900 py-1 mx-1 rounded-lg text-white text-xs font-bold uppercase text-center content-center">
+                                        Detalles
+                                    </a>    
+                                @endauth
+                                
                             </div>
                         @endforeach
                     </div>
